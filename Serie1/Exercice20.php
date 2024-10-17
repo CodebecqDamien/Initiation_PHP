@@ -1,12 +1,26 @@
 <?php
-    $Arg1 = 'Capitale';
-    $Arg2 = array("Paris","Berlin","Moscou");
+$title = 'Capitale';
+$list = array('Paris', 'Berlin', 'Moscou');
 
-    function listHTML($Arg1, $Arg2){
-        if($Arg1 == null && $Arg2 == null){
-            return null;
-        }else {
-            return '<h3>'.$Arg1.'</h3><ul><li>'.$Arg2[0].'</li><li>'.$Arg2[1].'</li><li>'.$Arg2[2].'</li></ul>';
-        }
+function listHTML($title, $list) {
+    // Vérifie si le titre ou la liste sont null ou vides
+    if (empty($title) || empty($list)) {
+        return null;
     }
+
+    // Initialise la chaîne HTML
+    $html = '<h3>' . htmlspecialchars($title) . '</h3><ul>';
+    
+    // Ajoute chaque élément de la liste à la chaîne HTML
+    foreach ($list as $item) {
+        $html .= '<li>' . htmlspecialchars($item) . '</li>';
+    }
+    
+    // Ferme la liste
+    $html .= '</ul>';
+    
+    return $html;
+}
+echo listHTML($title, $list);
+
 ?>
