@@ -1,0 +1,172 @@
+/* RESET DES STYLES DE BASE */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* STYLE GLOBAL */
+body {
+    font-family: 'Lora', serif;  /* Application de la police Lora */
+    background-image: url('../image/fond_d\'ecran.jpg');  /* Chemin vers ton image */
+    background-size: cover;  /* L'image couvre toute la page */
+    background-position: center;  /* L'image est centrée */
+    background-repeat: no-repeat;  /* L'image ne se répète pas */
+    height: 100vh;  /* Utiliser toute la hauteur de la page */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #495057;
+    line-height: 1.6;
+}
+
+h2 {
+    font-size: 2.4rem;
+    color: #007bff;
+    font-weight: 600;
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+/* FORMULAIRE */
+.contact-clean {
+    width: 100%;
+    max-width: 500px;
+    background-color: rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    padding: 2rem;
+}
+
+/* TITRE FORMULAIRE */
+.contact-clean h2 {
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+    color: #c53ba7;
+    font-weight: bold;
+}
+
+/* GESTION DES CHAMPS DE FORMULAIRE */
+.contact-clean .form-group {
+    margin-bottom: 20px;
+}
+
+.contact-clean .form-control {
+    width: 100%;
+    padding: 12px;
+    font-size: 1rem;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.contact-clean .form-control:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.3);
+    outline: none;
+}
+
+/* MESSAGE D'ERREUR DU MOT DE PASSE */
+.text-danger {
+    font-size: 0.9rem;
+    color: #dc3545;
+    margin-top: 0.5rem;
+    display: none;
+}
+
+/* DESIGN DE LA CASE À COCHER */
+.form-check-label {
+    font-size: 1rem;
+    color: #495057;
+}
+
+.form-check-input {
+    margin-right: 10px;
+    transform: scale(1.2);
+}
+
+/* BOUTON */
+.contact-clean .btn {
+    width: 100%;
+    padding: 12px;
+    font-size: 1.2rem;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s ease;
+}
+
+.contact-clean .btn:hover {
+    background-color: #0056b3;
+    transform: translateY(-3px);
+}
+
+.contact-clean .btn:active {
+    background-color: #003d82;
+    transform: translateY(1px);
+}
+
+.contact-clean .btn:disabled {
+    background-color: #c6c6c6;
+    cursor: not-allowed;
+}
+
+/* CHAMPS EN ERREUR (ROUGE) */
+.contact-clean .form-control.is-invalid {
+    border-color: #dc3545;
+}
+
+.contact-clean .form-check-input.is-invalid {
+    border-color: #dc3545;
+}
+
+/* RESPONSIVENESS POUR LES MOBILES */
+@media (max-width: 768px) {
+    .contact-clean {
+        width: 90%;
+        padding: 1.5rem;
+    }
+
+    h2 {
+        font-size: 1.8rem;
+    }
+
+    .contact-clean .btn {
+        font-size: 1rem;
+    }
+}
+
+/* Style personnalisé pour la page traitement.php */
+.container {
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 20px;
+}
+
+.card {
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.card-title {
+    font-size: 1.5rem;
+    color: #007bff;
+    margin-bottom: 1rem;
+}
+
+.card-body {
+    background-color: #f8f9fa;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+.card-body p {
+    font-size: 1rem;
+    color: #333;
+}
+
+.card-body strong {
+    color: #495057;
+}
