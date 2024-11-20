@@ -28,13 +28,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     echo "<p><strong>Message :</strong> " . nl2br($message) . "</p>";
 
     echo "<h4 class='card-title'>Sécurité</h4>";
-    echo "<p><strong>Mot de passe (donnée non affichée pour la sécurité) :</strong> " . (strlen($password) > 0 ? '****' : 'Non renseigné') . "</p>";
+    echo "<p><strong>Password :</strong> " . (strlen($password) > 0 ? str_repeat('*', strlen($password)) : 'Non renseigné') . "</p>";
 
     echo "<h4 class='card-title'>Confirmation</h4>";
-    echo "<p><strong>J'ai l'âge requis : </strong> " . $age_confirmation . "</p>";
-
-    echo "</div>"; // .card-body
-    echo "</div>"; // .card
-    echo "</div>"; // .container
+    echo "<p><strong>I am of age :</strong> " . $age_confirmation . "</p>";
+    echo "</div>";
+    echo "</div>";
+    echo "</div>";
+} else {
+    echo "Aucune donnée envoyée.";
 }
 ?>

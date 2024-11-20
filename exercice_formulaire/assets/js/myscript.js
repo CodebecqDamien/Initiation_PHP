@@ -1,12 +1,46 @@
-function verifierFormulaire() {
+// Fonction pour réinitialiser les erreurs de validation
+function resetErrors() {
+    var inputs = document.querySelectorAll('.form-control');
+    inputs.forEach(function(input) {
+        input.style.borderColor = ''; // Réinitialiser la bordure à la couleur par défaut
+    });
+
+    var passwordMessages = document.querySelectorAll('.password-error');
+    passwordMessages.forEach(function(message) {
+        message.classList.add('invisible'); // Masquer tous les messages d'erreur
+    });
+
+    // Réinitialiser la couleur de la checkbox et du label
+    var ageCheckbox = document.getElementById('formCheck-1');
+    var ageLabel = document.querySelector('label[for="formCheck-1"]');
+    ageCheckbox.style.borderColor = ''; // Réinitialiser la bordure de la checkbox
+    ageLabel.style.color = ''; // Réinitialiser la couleur du label
+}
+
+// Fonction pour ajouter un message d'erreur personnalisé
+function addErrorMessage(element, message) {
+    var error = document.createElement('small');
+    error.classList.add('text-danger');
+    error.textContent = message;
+    element.parentNode.appendChild(error);
+}
+
+// Fonction pour valider l'email
+function validateEmail(email) {
+    var re = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+    return re.test(email);
+}
+
+// Fonction pour vérifier la validité du formulaire
+function verifierFormulaire(event) {
     // Récupérer les éléments du formulaire
     var nom = document.getElementsByName('name')[0];
-    var prénom = document.getElementsByName('prénom')[0];
+    var prénom = document.getElementsByName('prenom')[0];
     var email = document.getElementsByName('email')[0];
     var password = document.getElementsByName('password')[0];
     var message = document.getElementsByName('message')[0];
     var ageCheckbox = document.getElementById('formCheck-1');
-    var passwordMessage = password.nextElementSibling; // Message d'erreur pour le mot de passe
+    var passwordMessages = document.getElementsByClassName('text-danger'); // Message d'erreur pour le mot de passe
     var ageLabel = document.querySelector('label[for="formCheck-1"]'); // Récupérer le label associé à la checkbox
 
     // Réinitialiser les erreurs précédentes
@@ -41,11 +75,12 @@ function verifierFormulaire() {
     // Validation du mot de passe
     if (password.value.length < 8) {
         password.style.borderColor = 'red';
-        passwordMessage.classList.remove('invisible');
+        passwordMessages[0].classList.remove('invisible'); // Afficher le message d'erreur
         isValid = false;
     } else {
         password.style.borderColor = 'green'; // Champ valide
-        passwordMessage.classList.add('invisible');
+        passwordMessages[0].classList.add('invisible'); // Masquer le message d'erreur
+
     }
 
     // Validation du message
@@ -66,32 +101,11 @@ function verifierFormulaire() {
         ageLabel.style.color = 'green'; // Label valide
     }
 
-    if (isValid) {
-        alert('Formulaire valide, soumission possible !');
-    }
+    // Si la validation échoue, empêcher la soumission du formulaire
+    if (!isValid) {
+        event.preventDefault(); // Empêche la soumission du formulaire
+    } 
 }
 
-// Fonction pour réinitialiser les erreurs de validation
-function resetErrors() {
-    var inputs = document.querySelectorAll('.form-control');
-    inputs.forEach(function(input) {
-        input.style.borderColor = ''; // Réinitialiser la bordure à la couleur par défaut
-    });
-
-    var passwordMessage = document.querySelector('.text-danger');
-    if (passwordMessage) {
-        passwordMessage.classList.add('invisible');
-    }
-
-    // Réinitialiser la couleur de la checkbox et du label
-    var ageCheckbox = document.getElementById('formCheck-1');
-    var ageLabel = document.querySelector('label[for="formCheck-1"]');
-    ageCheckbox.style.borderColor = ''; // Réinitialiser la bordure de la checkbox
-    ageLabel.style.color = ''; // Réinitialiser la couleur du label
-}
-
-// Fonction pour valider un email
-function validateEmail(email) {
-    var re = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-    return re.test(email);
-}
+// Ajout d'un événement de soumission du formulaire pour la validation
+document.querySelector('form').addEventListener('submit', verifierFormulaire);

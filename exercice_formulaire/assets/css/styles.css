@@ -122,6 +122,16 @@ h2 {
     border-color: #dc3545;
 }
 
+/* MESSAGE DE SUCCÈS */
+.success-message {
+    background-color: #28a745;
+    color: white;
+    padding: 15px;
+    margin-top: 20px;
+    border-radius: 5px;
+    text-align: center;
+}
+
 /* RESPONSIVENESS POUR LES MOBILES */
 @media (max-width: 768px) {
     .contact-clean {
