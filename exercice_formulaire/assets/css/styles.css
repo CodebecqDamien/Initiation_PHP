@@ -20,6 +20,7 @@ body {
     line-height: 1.6;
 }
 
+/* TITRE FORMULAIRE */
 h2 {
     font-size: 2.4rem;
     color: #007bff;
@@ -38,7 +39,7 @@ h2 {
     padding: 2rem;
 }
 
-/* TITRE FORMULAIRE */
+/* TITRE FORMULAIRE (petit ajustement) */
 .contact-clean h2 {
     font-size: 1.8rem;
     margin-bottom: 20px;
@@ -72,6 +73,27 @@ h2 {
     color: #dc3545;
     margin-top: 0.5rem;
     display: none;
+}
+
+.text-danger.visible {
+    display: block;
+    padding: 5px;
+    font-weight: 600;
+    border: 1px solid #dc3545;
+    background-color: #f8d7da;
+    border-radius: 5px;
+    color: #721c24;
+    margin-top: 8px;
+}
+
+/* MESSAGE D'ERREUR GENERIQUE (CHAMPS INVALIDES) */
+.contact-clean .form-control.is-invalid {
+    border-color: #dc3545;
+    background-color: #f8d7da; /* léger fond rouge pour les champs invalides */
+}
+
+.contact-clean .form-check-input.is-invalid {
+    border-color: #dc3545;
 }
 
 /* DESIGN DE LA CASE À COCHER */
@@ -113,15 +135,6 @@ h2 {
     cursor: not-allowed;
 }
 
-/* CHAMPS EN ERREUR (ROUGE) */
-.contact-clean .form-control.is-invalid {
-    border-color: #dc3545;
-}
-
-.contact-clean .form-check-input.is-invalid {
-    border-color: #dc3545;
-}
-
 /* MESSAGE DE SUCCÈS */
 .success-message {
     background-color: #28a745;
@@ -148,35 +161,12 @@ h2 {
     }
 }
 
-/* Style personnalisé pour la page traitement.php */
-.container {
-    max-width: 800px;
-    margin: 50px auto;
-    padding: 20px;
+/* Classe invisible pour masquer l'élément */
+.invisible {
+    display: none !important;
 }
 
-.card {
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-.card-title {
-    font-size: 1.5rem;
-    color: #007bff;
-    margin-bottom: 1rem;
-}
-
-.card-body {
-    background-color: #f8f9fa;
-    padding: 20px;
-    border-radius: 8px;
-}
-
-.card-body p {
-    font-size: 1rem;
-    color: #333;
-}
-
-.card-body strong {
-    color: #495057;
+/* Classe visible pour afficher un élément */
+.visible {
+    display: block !important;
 }

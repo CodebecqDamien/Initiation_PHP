@@ -40,7 +40,7 @@ function verifierFormulaire(event) {
     var password = document.getElementsByName('password')[0];
     var message = document.getElementsByName('message')[0];
     var ageCheckbox = document.getElementById('formCheck-1');
-    var passwordMessages = document.getElementsByClassName('text-danger'); // Message d'erreur pour le mot de passe
+    var passwordMessage = document.querySelector('.form-group input[name="password"] + small'); // Message d'erreur pour le mot de passe
     var ageLabel = document.querySelector('label[for="formCheck-1"]'); // Récupérer le label associé à la checkbox
 
     // Réinitialiser les erreurs précédentes
@@ -75,12 +75,13 @@ function verifierFormulaire(event) {
     // Validation du mot de passe
     if (password.value.length < 8) {
         password.style.borderColor = 'red';
-        passwordMessages[0].classList.remove('invisible'); // Afficher le message d'erreur
+        passwordMessage.classList.remove('invisible');  // Supprimer la classe 'invisible'
+        passwordMessage.classList.add('visible');       // Ajouter la classe 'visible'
         isValid = false;
     } else {
-        password.style.borderColor = 'green'; // Champ valide
-        passwordMessages[0].classList.add('invisible'); // Masquer le message d'erreur
-
+        password.style.borderColor = 'green';  // Champ valide
+        passwordMessage.classList.remove('visible'); // Enlever la visibilité
+        passwordMessage.classList.add('invisible');  // Ajouter la classe 'invisible'
     }
 
     // Validation du message
