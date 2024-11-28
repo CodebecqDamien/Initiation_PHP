@@ -14,12 +14,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $message = isset($_POST['message']) ? sécuriser($_POST['message']) : '';
     $age_confirmation = isset($_POST['age_confirmation']) ? 'Oui' : 'Non';
 
+    // Achage du mot de passe
+    $hashed_password = password_hash($password, PASSWORD_DEFAULT);
+    
     // Enregistrement des données dans un fichier data.json
     $data = array(
         'name' => $name,
         'prenom' => $prenom,
         'email' => $email,
-        'password' => $password,
+        'password' => $hashed_password,
         'message' => $message,
         'age' => $age_confirmation
     );
@@ -48,12 +51,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // Enregistrer les données mises à jour dans le fichier
         $data_json = json_encode($existing_data, JSON_PRETTY_PRINT);
         file_put_contents('data.json', $data_json);
-        echo "Utilisateur ajouté avec succès.";
+        afficher_donnees($prenom, $name, $email, $message, $password, $age_confirmation);
     } else {
-        echo "Un utilisateur avec ce nom, prénom et email existe déjà.";
+        afficher_compte_existant($prenom, $name);
+
     }
-
-
+}
+function afficher_donnees($prenom, $name, $email, $message, $password, $age_confirmation) {
     // Affichage dynamique et stylisé des données
     echo "
     <style>
@@ -83,6 +87,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             color: #007bff;
         }
     </style>
+    <h2 class='text-center'>Merci pour votre inscription !</h2>
     <div class='container'>
         <h2 class='text-center'>Données reçues :</h2>
         <div class='row'>
@@ -97,4 +102,56 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         </div>
     </div>";
 } 
+
+function afficher_compte_existant($prenom, $name) {
+    // Affichage dynamique et stylisé des données
+    echo "
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh; /* Hauteur égale à la fenêtre */
+            background-color: #f0f4f9;
+        }
+
+        .container {
+            background-color: #87a4fa;
+            border-radius: 8px;
+            padding: 20px;
+            width: 50%; /* Largeur de la boîte (50% de la page) */
+            height: 50%; /* Hauteur de la boîte (50% de la page) */
+            max-width: 600px; /* Largeur maximale */
+            display: flex; /* Utilisation de flexbox */
+            flex-direction: column; /* Organise les enfants verticalement */
+            justify-content: center; /* Centre les enfants verticalement */
+            align-items: center; /* Centre les enfants horizontalement */
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Ajout d'une ombre pour le style */
+            text-align: center; /* Centrer le contenu textuel */
+            color: black;
+        }
+
+        h2 {
+            font-weight: bold;
+            font-size: 4rem; /* Taille de police */
+            margin-bottom: 20px;
+        }
+
+        p {
+            font-size: 2.5rem; /* Taille de police */
+            margin: 10px 0;
+        }
+    </style>
+    <div class='container'>
+        <h2>Bonjour</h2>
+        <div class='row'>
+            <div class='col-12'>
+                <p>{$name} {$prenom}</p>
+            </div>
+        </div>
+    </div>";
+}
+
 ?>

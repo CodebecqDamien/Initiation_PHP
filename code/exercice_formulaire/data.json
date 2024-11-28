@@ -1,50 +1,18 @@
 [
     {
-        "name": "Codebecq",
+        "name": "CODEBECQ",
         "prenom": "Damien",
         "email": "damien.codebecq@lycee-jeanrostand.fr",
-        "password": "motdepasse",
-        "message": "bonjour",
-        "age": "Oui"
-    },
-    {
-        "name": "Dimanche",
-        "prenom": "Hugo",
-        "email": "hugo.dimanche@lycee-jeanrostand.fr",
-        "password": "motdepasse",
-        "message": "bonjour",
-        "age": "Oui"
-    },
-    {
-        "name": "Heng",
-        "prenom": "Billy",
-        "email": "billy.heng@lycee-jeanrostand.fr",
-        "password": "motdepasse",
-        "message": "bonjour",
-        "age": "Oui"
-    },
-    {
-        "name": "Atifi",
-        "prenom": "Amine",
-        "email": "amine.atifi@lycee-jeanrostand.fr",
-        "password": "motdepasse",
+        "password": "$2y$10$791by.p5RNUVUkfYSFNSoOn001W..rqLgnUrKClidQ4Jbd7JT3uyW",
         "message": "Bonjour",
         "age": "Oui"
     },
     {
-        "name": "",
-        "prenom": "",
-        "email": "",
-        "password": "",
-        "message": "",
-        "age": "Non"
-    },
-    {
-        "name": "Damien",
-        "prenom": "Damien",
-        "email": "damien.codebecq@lycee-jeanrostand.fr",
-        "password": "motdepasse",
-        "message": "bonjour",
+        "name": "HENG",
+        "prenom": "Billy",
+        "email": "billy.heng@lycee-jeanrostand.fr",
+        "password": "$2y$10$.foJtOA.3FfjuLjSRpx8t.Tf.6BvXzjyKZwnBGNbG1Y0me8VnO1rK",
+        "message": "Bonjour",
         "age": "Oui"
     }
 ]
