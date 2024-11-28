@@ -1,0 +1,24 @@
+version: '3.8'
+
+services:
+  nginx:
+    image: nginx:latest
+    container_name: exerciceformulaire_nginx
+    ports:
+      - "8092:80" # Expose le port 8092 pour accéder au serveur
+    volumes:
+      # Monte le dossier contenant votre projet dans le répertoire accessible par Nginx
+      - ./code:/usr/share/nginx/html:ro 
+      # Utilise une configuration Nginx personnalisée
+      - ./nginx.conf:/etc/nginx/conf.d/default.conf:ro 
+    depends_on:
+      - php # Nginx attend que PHP soit prêt avant de démarrer
+    restart: always
+
+  php:
+    image: php:8.1-fpm # PHP avec support FPM
+    container_name: exerciceformulaire_php
+    volumes:
+      # Monte le même dossier pour que PHP ait accès aux fichiers
+      - ./code:/usr/share/nginx/html
+    restart: always
